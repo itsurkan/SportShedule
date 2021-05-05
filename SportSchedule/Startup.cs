@@ -37,10 +37,10 @@ namespace SportSchedule
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            // services.AddDbContext<TournamentContext>(opt =>
-            //     opt.UseInMemoryDatabase("SportScheduleDB")
-            // );
-               services.AddDbContext<TournamentContext>(optionsBuilder =>
+            services.AddDbContext<TournamentContext>(opt =>
+                opt.UseInMemoryDatabase("SportScheduleDB")
+            );
+            services.AddDbContext<TournamentContext>(optionsBuilder =>
             {
                 optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
